@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Ensure smooth transitions */
+.transition-opacity {
+    transition: opacity 0.3s ease-in-out;
+  }
+
+@layer utilities {
+  .animate-fadeIn {
+    @apply opacity-0 animate-[fadeIn_0.4s_ease-out_forwards];
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+}
