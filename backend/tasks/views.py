@@ -7,6 +7,7 @@ from rest_framework import generics, permissions, viewsets, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import action, api_view, permission_classes
+from rest_framework.permissions import IsAdminUser
 from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly, IsAuthenticated, IsAdminUser
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.exceptions import ValidationError
@@ -14,6 +15,7 @@ from rest_framework.generics import RetrieveAPIView, ListCreateAPIView, ListAPIV
 from rest_framework.parsers import MultiPartParser
 from django.contrib.auth import get_user_model
 from django.core.exceptions import PermissionDenied
+from django.views.decorators.csrf import csrf_exempt
 
 # ✅ Internal Imports
 from .models import (
