@@ -37,7 +37,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-surface dark:bg-dark-blue text-main dark:text-main-dark transition-bg transition-text shadow p-4 flex justify-between items-center">
       <div className="text-xl font-bold">
-        <Link to="/">Gemified&nbsp;Task&nbsp;Manager • ⚡GTM RPG⚡</Link>
+        <Link to="/">Gamified&nbsp;Task&nbsp;Manager • GTM RPG</Link>
       </div>
 
       {user ? (

@@ -46,16 +46,10 @@ export default function App() {
             Welcome to the Gamified Task Manager
           </h1>
 
-          <p>Development Directed by <strong>BushidoCoder</strong> aka Timur Mustafin</p>
-          <p>
-            Refactored, Mastered, Polished and BackedUp by <strong>Code Bothers</strong> — Timur Mustafin & ChatGPT4o
-          </p>
+          <p>Developed by <b><a href="https://mustafin.info/">Timur Mustafin</a></b></p>
 
-          <p className="text-sm text-subtle dark:text-subtle-dark italic">
-            Thank you OpenAI for making my dream come true.
-          </p>
           <p className="text-xs mt-8 opacity-70">
-            P.S. If you're reading this and you're a recruiter, please hire me — I build things with my heart. 💙 
+            P.S. If you're reading this and you're a recruiter, you should hire me as I build things with my heart. 💙 
           </p>
         </div>
         </ProtectedRoute>} />
