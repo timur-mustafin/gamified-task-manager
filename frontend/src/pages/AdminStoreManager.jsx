@@ -6,7 +6,7 @@ export default function AdminStoreManager() {
   const { notify } = useAlert()
   const [items, setItems] = useState([])
   const [editingItem, setEditingItem] = useState(null)
-  const [newItem, setNewItem] = useState({ title: '', description: '', cost: 0, photo: null })
+  const [newItem, setNewItem] = useState({ name: '', description: '', cost: 0, image: null })
 
   useEffect(() => {
     fetchItems()
@@ -18,19 +18,19 @@ export default function AdminStoreManager() {
   }
 
   const handleFileChange = (e) => {
-    setNewItem({ ...newItem, photo: e.target.files[0] })
+    setNewItem({ ...newItem, image: e.target.files[0] })
   }
 
   const handleCreate = async () => {
     const form = new FormData()
-    form.append('name', newItem.title)
+    form.append('name', newItem.name)
     form.append('description', newItem.description)
     form.append('cost', newItem.cost)
-    if (newItem.photo) form.append('image', newItem.photo)
+    if (newItem.image) form.append('image', newItem.image)
   
     try {
       await axios.post('/store/', form)
-      setNewItem({ title: '', description: '', cost: 0, photo: null })
+      setNewItem({ name: '', description: '', cost: 0, image: null })
       fetchItems()
       notify('Item created!')
     } catch (err) {
@@ -42,11 +42,11 @@ export default function AdminStoreManager() {
 
   const handleUpdate = async () => {
     const form = new FormData()
-    form.append('name', editingItem.title)
+    form.append('name', editingItem.name)
     form.append('description', editingItem.description)
     form.append('cost', editingItem.cost)
-    if (editingItem.photo instanceof File) {
-      form.append('image', editingItem.photo)
+    if (editingItem.image instanceof File) {
+      form.append('image', editingItem.image)
     }
 
     await axios.put(`/store/${editingItem.id}/`, form)
@@ -70,7 +70,7 @@ export default function AdminStoreManager() {
         {items.map(item => (
           <div key={item.id} className="border p-4 rounded space-y-2">
             <div className="flex justify-between items-center">
-              <h2 className="text-lg font-semibold">{item.title}</h2>
+              <h2 className="text-lg font-semibold">{item.name}</h2>
               <div className="flex gap-2">
                 <button onClick={() => setEditingItem(item)} className="text-blue-600 hover:underline">Edit</button>
                 <button onClick={() => handleDelete(item.id)} className="text-red-600 hover:underline">Delete</button>
@@ -78,9 +78,9 @@ export default function AdminStoreManager() {
             </div>
             <p className="text-sm">{item.description}</p>
             <p className="text-sm">🎖️ {item.cost} Honor</p>
-            {item.photo && (
+            {item.image && (
               <img
-                src={item.photo.startsWith('http') ? item.photo : `${mediaUrl}${item.photo}`}
+                src={item.image.startsWith('http') ? item.image : `${mediaUrl}${item.image}`}
                 alt="item"
                 className="w-32 rounded"
               />
@@ -95,11 +95,11 @@ export default function AdminStoreManager() {
         <div className="grid gap-2 mt-2">
           <input
             placeholder="Title"
-            value={editingItem?.title ?? newItem.title}
+            value={editingItem?.name ?? newItem.name}
             onChange={e =>
               editingItem
-                ? setEditingItem({ ...editingItem, title: e.target.value })
-                : setNewItem({ ...newItem, title: e.target.value })
+                ? setEditingItem({ ...editingItem, name: e.target.value })
+                : setNewItem({ ...newItem, name: e.target.value })
             }
             className="p-2 border rounded"
           />
@@ -128,7 +128,7 @@ export default function AdminStoreManager() {
             type="file"
             onChange={e =>
               editingItem
-                ? setEditingItem({ ...editingItem, photo: e.target.files[0] })
+                ? setEditingItem({ ...editingItem, image: e.target.files[0] })
                 : handleFileChange(e)
             }
             className="p-2 border rounded"

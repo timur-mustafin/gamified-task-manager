@@ -29,15 +29,35 @@ export default function Store() {
       <h2 className="text-2xl font-bold mb-6">Honor Store</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {items.map(item => (
-          <div key={item.id} className="border rounded shadow p-4 text-center">
-            {item.image && <img src={item.image} alt={item.name} className="w-32 h-32 mx-auto mb-2 object-cover rounded" />}
-            <h3 className="text-lg font-semibold">{item.name}</h3>
-            <p className="text-sm text-gray-600">{item.description}</p>
+          <div
+            key={item.id}
+            className="border rounded shadow p-4 text-center flex flex-col h-full"
+          >
+            {item.image && (
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-32 h-32 mx-auto mb-3 object-cover rounded"
+              />
+            )}
+
+            <h3 className="text-lg font-semibold line-clamp-2 min-h-[3rem]">
+              {item.name}
+            </h3>
+
+            <p className="text-sm text-gray-600 line-clamp-3 min-h-[3.6rem]">
+              {item.description}
+            </p>
+
             <p className="text-md font-bold text-purple-700 my-2">{item.cost} Honor</p>
+
             <button
               onClick={() => handleBuy(item.id)}
               disabled={hasPurchased(item.id)}
-              className={`${hasPurchased(item.id) ? 'bg-gray-400 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'} text-white px-4 py-2 rounded mt-2`}
+              className={`${hasPurchased(item.id)
+                ? 'bg-gray-400 cursor-not-allowed'
+                : 'bg-indigo-600 hover:bg-indigo-700'
+              } text-white px-4 py-2 rounded mt-auto`}
             >
               {hasPurchased(item.id) ? 'Purchased' : 'Buy'}
             </button>
