@@ -44,8 +44,10 @@ A full-stack web app to manage tasks with gamification mechanics.
 
 ![Dashboard Preview](./docs/dashboard_view.png)
 ![Task History Preview](./docs/task_history_view.png)
-![Task History Preview](./docs/store_view.png)
+![Honor Store Items Preview](./docs/store_view.png)
 ![Hall Of Fame (leadersboard) Preview](./docs/hall_of_fame.png)
+![Admin's Dashboard](./docs/admin_dash.png)
+![User Manager](./docs/usr_mngr.png)
 
 ---
 
