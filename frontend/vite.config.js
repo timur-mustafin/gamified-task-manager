@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
-  base: '/gamified-task-manager/',
+export default defineConfig(({ command }) => ({
+  base: command === 'serve' ? '/' : '/gamified-task-manager/',
   plugins: [react()],
   server: {
     host: '0.0.0.0',
@@ -13,4 +13,4 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
   }
-})
+}))
