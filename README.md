@@ -74,8 +74,64 @@ gamified_task_manager/
 ```
 
 ---
+# One-Click Run
 
-## Getting Started
+## 🎯 Demo mode (Nginx + built dist)
+
+1. Build frontend:
+   ```bash
+   docker compose run --rm frontend-build
+   ```
+
+   👉 This writes the built files into the `dist` volume.
+
+2. Start the whole stack:
+   ```bash
+   docker compose up -d db backend nginx
+   ```
+
+   Open [http://localhost:3001](http://localhost:3001) — frontend is served by Nginx, 
+   and API requests are proxied to the backend.
+
+---
+
+## 🚀 Dev mode (Django + Vite hot reload)
+
+1. Start database and backend:
+   ```bash
+   docker compose up -d db backend
+   ```
+
+   Backend available at [http://localhost:8000](http://localhost:8000)
+
+2. Start frontend outside Docker (with hot reload):
+   ```bash
+   cd frontend
+   npm ci
+   npm run dev
+   ```
+
+   Frontend available at [http://localhost:3000](http://localhost:3000), 
+   API requests go to `http://localhost:8000/api/...`.
+
+---
+
+## 🧩 Notes
+
+- **Admin user** is created automatically:  
+  Username: `admin`  
+  Password: `admin`
+
+- To use Django runserver in container (instead of Gunicorn), override:
+  ```yaml
+  RUN_CMD: "python manage.py runserver 0.0.0.0:8000 --settings=core.settings.dev"
+  ```
+  This will run Django in dev mode with auto-reload.
+
+---
+
+
+## Getting Started (Dev Setup)
 
 ### Prerequisites
 - Python 3.11+
