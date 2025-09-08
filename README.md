@@ -74,16 +74,16 @@ gamified_task_manager/
 ```
 
 ---
-# One-Click Run
 
-## 🎯 Demo mode (Nginx + built dist)
+
+## One-Click Run🎯 aka Demo mode (Nginx + built dist)
 
 1. Build frontend:
    ```bash
    docker compose run --rm frontend-build
    ```
 
-   👉 This writes the built files into the `dist` volume.
+   👉 This writes the built files into the `dist` volume (frontend/dist folder).
 
 2. Start the whole stack:
    ```bash
@@ -130,6 +130,55 @@ gamified_task_manager/
 
 ---
 
+
+## Version
+
+Current: `v0.6.2`
+
+---
+
+## License
+
+[MIT License](LICENSE)
+
+---
+
+## Roadmap
+
+- Store module (XP → rewards) #Done
+- Dashboard (progress graphs, ranking) #Done
+
+- **Auction-based Task Assignment** *(in progress)*  
+
+  Givers will be able to:
+  - Assign tasks to multiple candidates
+  - Receive time/quality estimates from each
+  - Choose based on best offer (ETA + quality)
+
+- Notifications/reminders (planned)
+- AI-powered suggestions (planned)
+- Customized CSS with presets over tailwind CSS (planned)
+
+---
+
+## Contributing
+
+Coming soon — PR template, issue guidelines, and contribution docs.
+
+---
+
+## 🌐 Author
+
+**Timur Mustafin**  
+[github.com/timur-mustafin](https://github.com/timur-mustafin)
+
+
+---
+
+<details>
+  <summary>0.5.2 legacy instructions for cold separate run in 3 inst</summary>
+
+  **Spoiler:** 
 
 ## Getting Started (Dev Setup)
 
@@ -192,46 +241,6 @@ npm install lucide-react date-fns timeago.js marked
 npm run dev
 ```
 
----
+</details>
 
-## Version
-
-Current: `v0.5.2`
-
----
-
-## License
-
-[MIT License](LICENSE)
-
----
-
-## Roadmap
-
-- Store module (XP → rewards) #Done
-- Dashboard (progress graphs, ranking) #Done
-
-- **Auction-based Task Assignment** *(in progress)*  
-
-  Givers will be able to:
-  - Assign tasks to multiple candidates
-  - Receive time/quality estimates from each
-  - Choose based on best offer (ETA + quality)
-
-- Notifications/reminders (planned)
-- AI-powered suggestions (planned)
-- Customized CSS with presets over tailwind CSS (planned)
-
----
-
-## Contributing
-
-Coming soon — PR template, issue guidelines, and contribution docs.
-
----
-
-## 🌐 Author
-
-**Timur Mustafin**  
-[github.com/timur-mustafin](https://github.com/timur-mustafin)
 

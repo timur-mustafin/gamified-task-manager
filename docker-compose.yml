@@ -44,7 +44,7 @@ services:
     working_dir: /frontend
     volumes:
       - ./frontend:/frontend
-      - dist:/frontend/dist
+      - ./frontend/dist:/frontend/dist
       - node_modules:/frontend/node_modules
     command: sh -c "npm ci && npm run build"
     networks: [appnet]
